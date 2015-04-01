@@ -1,0 +1,9 @@
+package seminario
+
+class MascotaEncontrada {
+
+	String raza, particularidad, medida
+
+    static constraints = {
+    }
+}
