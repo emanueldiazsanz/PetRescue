@@ -5,6 +5,10 @@ class PublicacionController {
 	}
 
 	def publicarAviso() {
+
+		// Tipo de aviso
+		TipoAviso tipoDeAviso = params.tipoDeAviso
+
 		// Mascota
 		def especie = params.especie
 		def raza = params.raza
@@ -38,18 +42,24 @@ class PublicacionController {
 
 		//Usuario usuario = new Usuario("Marta", "12345").save(failOnError: true)
 		//Aviso aviso = new Aviso(usuario, mascota, new Date(), ubicacion, TipoAviso.PERDIDO)
-		Aviso aviso = new Aviso(mascota, new Date(), ubicacion, TipoAviso.PERDIDO)
+		Aviso aviso = new Aviso(mascota, new Date(), ubicacion, tipoDeAviso)
 		aviso.save(failOnError: true)
 
-		//render "creando aviso ${aviso}"
-		redirect action: 'verAviso' , id: aviso.id
+
+		if (tipoDeAviso == TipoAviso.PERDIDO)
+			redirect action: 'verPerdido', id: aviso.id
+		else if (tipoDeAviso == TipoAviso.ENCONTRADO)
+			redirect action: 'verEncontrado', id: aviso.id
 	}
 
-	def verAviso(Long id) {
+	def verPerdido(Long id){
 		def aviso = Aviso.get(id)
-
 		Map modelo = ['aviso': aviso]
-		return modelo
+	}
+
+	def verEncontrado(Long id){
+		def aviso = Aviso.get(id)
+		Map modelo = ['aviso': aviso]
 	}
 
 	def verPerdidos() {

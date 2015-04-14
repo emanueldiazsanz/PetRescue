@@ -98,6 +98,9 @@
 
 			<div id="controller-list" role="navigation">
 				<h2>Reportar mascota:</h2>
+					<BUTTON> <b>Encontré</b> </BUTTON>
+					<BUTTON> <b>Perdi</b> </BUTTON>
+
 				<ul>
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
 						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>

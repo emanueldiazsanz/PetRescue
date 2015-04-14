@@ -1,8 +1,0 @@
-package seminario
-
-class MascotaController {
-
-	static scaffold = true;
-
-    def index() { }
-}
