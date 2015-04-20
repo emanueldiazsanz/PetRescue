@@ -1,4 +1,5 @@
 package seminario
+import org.joda.time.*
 
 class HojaDeContacto {
 	String nombre, apellido, telefono, email
@@ -15,11 +16,11 @@ class Usuario {
 
 	String apodo
 	String contrasena
-
-	//Set<Aviso> avisos = []
-
 	HojaDeContacto hojaDeContacto
+	Set<Aviso> avisos = []
 
+	static hasMany = [avisos: Aviso]
+	
 	static embedded = ['hojaDeContacto']
 
 	static constraints = {
@@ -36,4 +37,10 @@ class Usuario {
 		this.apodo = apodo
 		this.contrasena = contrasena
 	}
+
+	def crearAviso(Mascota mascota, LocalDate fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {
+		//Aviso aviso = new Aviso(this, mascota, new Date(), ubicacion, tipoAviso)
+		Aviso aviso = new Aviso(mascota, fecha, ubicacion, tipoDeAviso, comentario)
+		this.avisos << aviso
+	}	
 }

@@ -1,13 +1,14 @@
 package seminario
+import org.joda.time.*
 
 class Mascota {
 	String especie, raza, sexo, tamanio, nombre, senias
 
 	static constraints = {
-		especie inList: ['', 'perro', 'gato'], blank: false, nullable: false
-		sexo inList: ['', 'macho', 'hembra'], blank: false, nullable: false
+		especie inList: ['perro', 'gato'], blank: false, nullable: false
+		sexo inList: ['macho', 'hembra'], blank: false, nullable: false
 		raza blank: true, nullable: true
-		tamanio inList: ['', 'chico', 'mediano', 'grande'], blank: false, nullable: false
+		tamanio inList: ['chico', 'mediano', 'grande'], blank: false, nullable: false
 		nombre blank: true, nullable: true
 		senias blank: true, nullable: true
     }
@@ -17,7 +18,7 @@ class Ubicacion {
 	String provincia, barrio, calles
 
 	static constraints = {
-		provincia inList: ['', 'Capital Federal', 'Buenos Aires',
+		provincia inList: ['Capital Federal', 'Buenos Aires',
 		'Catamarca', 'Chaco', 'Chubut', 'Córdoba', 'Corrientes',
 		'Entre Rios', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja',
 		'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta',
@@ -39,8 +40,9 @@ class Aviso {
 	Mascota mascota
 	//Usuario publicador
 
-	Date fecha // TODO usar joda time
+	LocalDate fecha // TODO usar joda time
 	Ubicacion ubicacion
+	String comentario
 
 	static embedded = ['mascota', 'ubicacion']
 
@@ -50,14 +52,16 @@ class Aviso {
 		//publicador nullable: false
 		fecha nullable: false
 		ubicacion nullable: false
+		comentario blank: true, nullable: true
 	}
 
-	Aviso(Mascota mascota, Date fecha, Ubicacion ubicacion, TipoAviso tipoAviso) {	
+	Aviso(Mascota mascota, LocalDate fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {	
 	//Aviso(Usuario publicador, Mascota mascota, Date fecha, Ubicacion ubicacion, TipoAviso tipoAviso) {
 		//this.publicador = publicador
 		this.mascota = mascota
 		this.fecha = fecha
 		this.ubicacion = ubicacion
 		this.tipoAviso = tipoAviso
+		this.comentario = comentario
 	}
 }

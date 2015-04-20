@@ -1,7 +1,9 @@
 package seminario
+import org.joda.time.*
 
 class PublicacionController {
 	def index() {
+
 	}
 
 	def publicarAviso() {
@@ -18,6 +20,9 @@ class PublicacionController {
 		def senias = params.senias
 		Mascota mascota = new Mascota(especie: especie, raza: raza, sexo: sexo, tamanio: tamanio, nombre: nombre, senias: senias)
 
+		// Foto
+		def foto = params.foto
+
 		// Ubicacion
 		def provincia = params.provincia
 		def barrio = params.barrio
@@ -25,10 +30,10 @@ class PublicacionController {
 		Ubicacion ubicacion = new Ubicacion(provincia: provincia, barrio: barrio, calles: calles)
 
 		// Fecha
-		def dia = params.dia
-		def mes = params.mes
-		def anio = params.anio
-		//Date fecha = new Date(anio, mes, dia)
+		def dia = params.dia as Integer
+		def mes = params.mes as Integer
+		def anio = params.anio as Integer
+		LocalDate fecha = new LocalDate(anio, mes, dia)
 
 		// Comentario
 		def comentario = params.comentario
@@ -38,11 +43,9 @@ class PublicacionController {
 		//	return
 		//}
 
-		
-
 		//Usuario usuario = new Usuario("Marta", "12345").save(failOnError: true)
-		//Aviso aviso = new Aviso(usuario, mascota, new Date(), ubicacion, TipoAviso.PERDIDO)
-		Aviso aviso = new Aviso(mascota, new Date(), ubicacion, tipoDeAviso)
+		//Aviso aviso = new Aviso(usuario, mascota, new Date(), ubicacion, tipoDeAviso, comentario)
+		Aviso aviso = new Aviso(mascota, fecha, ubicacion, tipoDeAviso, comentario)
 		aviso.save(failOnError: true)
 
 
@@ -62,28 +65,17 @@ class PublicacionController {
 		Map modelo = ['aviso': aviso]
 	}
 
-	def verPerdidos() {
+	def mascotasPerdidas() {
 		List avisos = Aviso.list() // todos
+		List perdidas = Aviso.findAllByTipoAviso(TipoAviso.PERDIDO)
 
-		List filtrados = avisos.findAll { Aviso aviso ->
-			aviso.tipoAviso == TipoAviso.PERDIDO
-		}
-		
-		List perdidos = Aviso.findAllByTipoAviso(TipoAviso.PERDIDO)
-		List perdidos2 = Aviso.findAllByTipoAvisoAndPublicador(TipoAviso.PERDIDO, Usuario.get(1))
-		List noanda = Aviso.findAllByManzana(Usuario.get(1))
-		// googlear dynamic finders
-		
-		List copado = Aviso.withCriteria {
-			eq('publicador', Usuario.get(1))
-			lt('fecha', new Date())
-		}
+		Map modelo = ['perdidas': perdidas]
+	}
 
-		Map modelo = new HashMap()
-		modelo.put('perdidos', copado)
-		modelo.put('manzana', 2000)
-		return modelo
+	def mascotasEncontradas() {
+		List avisos = Aviso.list() // todos
+		List encontradas = Aviso.findAllByTipoAviso(TipoAviso.ENCONTRADO)
 		
-		// [perdidos: Aviso.list()] equivalente
+		Map modelo = ['encontradas': encontradas]
 	}
 }
