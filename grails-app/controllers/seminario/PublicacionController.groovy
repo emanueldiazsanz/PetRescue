@@ -2,10 +2,10 @@ package seminario
 import org.joda.time.*
 
 class PublicarAvisoCommand {
-		String especie, raza, sexo, tamanio, nombre, senias, comentario
-		String provincia, barrio, calles
-		Integer dia, mes, anio
-		TipoAviso tipoDeAviso
+	String especie, raza, sexo, tamanio, nombre, senias, comentario
+	String provincia, barrio, calles
+	Integer dia, mes, anio
+	TipoAviso tipoDeAviso
 	
 	static constraints = {
 		especie inList: ['perro', 'gato'], blank: false, nullable: false
@@ -69,8 +69,7 @@ class PublicacionController {
 		// Tipo de aviso
 		TipoAviso tipoAviso = command.tipoDeAviso
 
-		HojaDeContacto hoja = new HojaDeContacto(nombre: "Marta", apellido: "Sanchez", telefono: "0303456", email: "lamarti@gmail.com")
-		Usuario logeado = new Usuario("marta9000", "12345", hoja).save(failOnError: true)
+		Usuario logeado = Usuario.get(1)
 
 		Aviso aviso = logeado.publicarAviso(mascota, fecha, ubicacion, tipoAviso, comentario)
 		aviso.save(failOnError: true)

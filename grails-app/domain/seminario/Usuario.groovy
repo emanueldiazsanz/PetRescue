@@ -7,7 +7,7 @@ class HojaDeContacto {
 	static constraints = {
 		nombre nullable: false, blank: false
 		apellido nullable: false, blank: false
-		telefono nullable: false, blank: false
+		telefono nullable: true, blank: true
 		email nullable: false, blank: false, email: true
 	}
 }
@@ -24,8 +24,7 @@ class Usuario {
 	static embedded = ['hojaDeContacto']
 
 	static constraints = {
-		//apodo nullable: false, blank: false, unique: true
-		apodo nullable: false, blank: false
+		apodo nullable: false, blank: false, unique: true
 		contrasenia nullable: false, blank: false
 		hojaDeContacto nullable: false
 	}
