@@ -1,67 +1,112 @@
 package seminario
 import org.joda.time.*
 
+class PublicarAvisoCommand {
+		String especie, raza, sexo, tamanio, nombre, senias, comentario
+		String provincia, barrio, calles
+		Integer dia, mes, anio
+		TipoAviso tipoDeAviso
+	
+	static constraints = {
+		especie inList: ['perro', 'gato'], blank: false, nullable: false
+		sexo inList: ['macho', 'hembra'], blank: false, nullable: false
+		raza blank: true, nullable: true
+		tamanio inList: ['chico', 'mediano', 'grande'], blank: false, nullable: false
+		nombre blank: true, nullable: true
+		senias blank: true, nullable: true
+		comentario blank: true, nullable: true
+
+		provincia inList: ['Capital Federal', 'Buenos Aires',
+		'Catamarca', 'Chaco', 'Chubut', 'Córdoba', 'Corrientes',
+		'Entre Rios', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja',
+		'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta',
+		'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero',
+		'Tierra del Fuego', 'Tucumán'], blank:false, nullable: false
+		barrio blank: false, nullable: false
+		calles blank: true, nullable: true
+	}
+}
+
 class PublicacionController {
 	def index() {
-
+		[command: new PublicarAvisoCommand()]
 	}
 
-	def publicarAviso() {
-
-		// Tipo de aviso
-		TipoAviso tipoDeAviso = params.tipoDeAviso
+	def publicarAviso(PublicarAvisoCommand command) {
+		if (command.hasErrors()) {
+			render view: "index", model: [command: command]
+			return
+		}
 
 		// Mascota
-		def especie = params.especie
-		def raza = params.raza
-		def sexo = params.sexo
-		def tamanio = params.tamanio
-		def nombre = params.nombre
-		def senias = params.senias
+		def especie = command.especie
+		def raza = command.raza
+		def sexo = command.sexo
+		def tamanio = command.tamanio
+		def nombre = command.nombre
+		def senias = command.senias
 		Mascota mascota = new Mascota(especie: especie, raza: raza, sexo: sexo, tamanio: tamanio, nombre: nombre, senias: senias)
 
 		// Foto
 		def foto = params.foto
 
+		// Comentario
+		def comentario = command.comentario
+
 		// Ubicacion
-		def provincia = params.provincia
-		def barrio = params.barrio
-		def calles = params.calles
+		def provincia = command.provincia
+		def barrio = command.barrio
+		def calles = command.calles
 		Ubicacion ubicacion = new Ubicacion(provincia: provincia, barrio: barrio, calles: calles)
 
 		// Fecha
-		def dia = params.dia as Integer
-		def mes = params.mes as Integer
-		def anio = params.anio as Integer
-		LocalDate fecha = new LocalDate(anio, mes, dia)
+		def dia = command.dia as Integer
+		def mes = command.mes as Integer
+		def anio = command.anio as Integer
+		LocalDate fecha = new LocalDate(anio, mes, dia)		// verificar la fecha ingresada
 
-		// Comentario
-		def comentario = params.comentario
 
-		//if (!nombre || !raza || !direccion) {
-		//	render "cargá todo"
-		//	return
-		//}
+		// Tipo de aviso
+		TipoAviso tipoAviso = command.tipoDeAviso
 
-		//Usuario usuario = new Usuario("Marta", "12345").save(failOnError: true)
-		//Aviso aviso = new Aviso(usuario, mascota, new Date(), ubicacion, tipoDeAviso, comentario)
-		Aviso aviso = new Aviso(mascota, fecha, ubicacion, tipoDeAviso, comentario)
+		HojaDeContacto hoja = new HojaDeContacto(nombre: "Marta", apellido: "Sanchez", telefono: "0303456", email: "lamarti@gmail.com")
+		Usuario logeado = new Usuario("marta9000", "12345", hoja).save(failOnError: true)
+
+		Aviso aviso = logeado.publicarAviso(mascota, fecha, ubicacion, tipoAviso, comentario)
 		aviso.save(failOnError: true)
 
+		switch (tipoAviso){
+			case TipoAviso.ENCONTRADO:
+				redirect action: 'verEncontrado', id: aviso.id
+				break
 
-		if (tipoDeAviso == TipoAviso.PERDIDO)
-			redirect action: 'verPerdido', id: aviso.id
-		else if (tipoDeAviso == TipoAviso.ENCONTRADO)
-			redirect action: 'verEncontrado', id: aviso.id
+			case TipoAviso.PERDIDO:
+				redirect action: 'verPerdido', id: aviso.id
+				break
+		}
+	}
+
+	def noExisteAviso(){
+		render "No existe el aviso"
 	}
 
 	def verPerdido(Long id){
 		def aviso = Aviso.get(id)
+
+		if (!aviso || aviso.tipoAviso == TipoAviso.ENCONTRADO){
+			redirect action: 'noExisteAviso'
+		}
+
 		Map modelo = ['aviso': aviso]
 	}
 
 	def verEncontrado(Long id){
 		def aviso = Aviso.get(id)
+
+		if (!aviso || aviso.tipoAviso == TipoAviso.PERDIDO){
+			redirect action: 'noExisteAviso'
+		}
+		
 		Map modelo = ['aviso': aviso]
 	}
 

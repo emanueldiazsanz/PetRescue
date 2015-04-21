@@ -36,11 +36,9 @@ enum TipoAviso {
 class Aviso {
 
 	TipoAviso tipoAviso
-
 	Mascota mascota
-	//Usuario publicador
-
-	LocalDate fecha // TODO usar joda time
+	Usuario publicador
+	LocalDate fecha
 	Ubicacion ubicacion
 	String comentario
 
@@ -49,15 +47,14 @@ class Aviso {
 	static constraints = {
 		tipoAviso nullable: false
 		mascota nullable: false
-		//publicador nullable: false
+		publicador nullable: false
 		fecha nullable: false
 		ubicacion nullable: false
 		comentario blank: true, nullable: true
 	}
 
-	Aviso(Mascota mascota, LocalDate fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {	
-	//Aviso(Usuario publicador, Mascota mascota, Date fecha, Ubicacion ubicacion, TipoAviso tipoAviso) {
-		//this.publicador = publicador
+	Aviso(Usuario publicador, Mascota mascota, LocalDate fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {
+		this.publicador = publicador
 		this.mascota = mascota
 		this.fecha = fecha
 		this.ubicacion = ubicacion

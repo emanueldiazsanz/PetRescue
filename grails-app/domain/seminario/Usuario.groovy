@@ -15,7 +15,7 @@ class HojaDeContacto {
 class Usuario {
 
 	String apodo
-	String contrasena
+	String contrasenia
 	HojaDeContacto hojaDeContacto
 	Set<Aviso> avisos = []
 
@@ -24,23 +24,25 @@ class Usuario {
 	static embedded = ['hojaDeContacto']
 
 	static constraints = {
-		apodo nullable: false, blank: false, unique: true
-		contrasena nullable: false, blank: false
-		hojaDeContacto nullable: true
+		//apodo nullable: false, blank: false, unique: true
+		apodo nullable: false, blank: false
+		contrasenia nullable: false, blank: false
+		hojaDeContacto nullable: false
 	}
 
-	Usuario(String apodo, String contrasena) {
+	Usuario(String apodo, String contrasenia, HojaDeContacto hojaDeContacto) {
 		if (apodo == null || apodo.trim() == '') {
 			throw new IllegalArgumentException("Nombre de usuario incorrecto")
 		}
 
 		this.apodo = apodo
-		this.contrasena = contrasena
+		this.contrasenia = contrasenia
+		this.hojaDeContacto = hojaDeContacto
 	}
 
-	def crearAviso(Mascota mascota, LocalDate fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {
-		//Aviso aviso = new Aviso(this, mascota, new Date(), ubicacion, tipoAviso)
-		Aviso aviso = new Aviso(mascota, fecha, ubicacion, tipoDeAviso, comentario)
+	def publicarAviso(Mascota mascota, LocalDate fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {
+		Aviso aviso = new Aviso(this, mascota, fecha, ubicacion, tipoAviso, comentario)
 		this.avisos << aviso
+		aviso
 	}	
 }
