@@ -12,7 +12,7 @@
 				<td>
 					<!--Usuario-->
 					<br>
-					Apodo: ${logeado.apodo} <br>
+					Usuario: ${logeado.apodo} <br>
 
 					<!--HojaDeContacto-->
 					Nombre: ${logeado.hojaDeContacto.nombre} <br>

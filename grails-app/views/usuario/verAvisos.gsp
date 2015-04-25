@@ -1,24 +1,25 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Pet Rescue</title>
 	</head>
 	<body>
-		<h1 align="center"> MASCOTAS ENCONTRADAS</h1>
-		
+		<h1 align="center"> AVISOS PUBLICADOS </h1><br>
 			<table>
-				<tr> 
+				<tr>
+					<th><div align="center">Aviso</th></div> 
 					<th><div align="center">Especie</th></div>
 					<th><div align="center">Raza</th></div>
 					<th><div align="center">Sexo</th></div>
 					<th><div align="center">Tamaño</th></div>
 					<th><div align="center">Provincia</th></div>
 					<th><div align="center">Fecha</th></div>
-
 				</tr>
-				<g:each in="${encontradas}" var="aviso">
+
+				<g:each in="${avisos}" var="aviso">
 					<tr>
+						<td><div align="center">${aviso.tipoAviso} </td></div>
 						<td><div align="center">${aviso.mascota.especie} </td></div>
 						<td><div align="center">${aviso.mascota.raza} </td></div>
 						<td><div align="center">${aviso.mascota.sexo} </td></div>
@@ -29,26 +30,20 @@
 				</g:each>
 			</table>
 
-					<h1 align="center"> MASCOTAS PERDIDAS</h1>
-		
 			<table>
-				<tr> 
-					<th><div align="center">Especie</th></div>
-					<th><div align="center">Raza</th></div>
-					<th><div align="center">Nombre</th></div>
-					<th><div align="center">Provincia</th></div>
-					<th><div align="center">Fecha</th></div>
+			<tr>
+				<td>	
+					<div align="center">
+						<g:link action="miPerfil" controller="usuario" id="1"> Mi perfil </g:link>
+					</div>
+				</td>
+				<td>
+					<div align="center">
+						<a href="http://localhost:8080/Seminario" controller="usuario" id="1"> Home </a>
+					</div>
+				</td>
+			</tr>
+		</table>
 
-				</tr>
-				<g:each in="${perdidas}" var="aviso">
-					<tr>
-						<td><div align="center">${aviso.mascota.especie} </td></div>
-						<td><div align="center">${aviso.mascota.raza} </td></div>
-						<td><div align="center">${aviso.mascota.nombre} </td></div>
-						<td><div align="center">${aviso.ubicacion.provincia} </td></div>
-						<td><div align="center">${aviso.fecha} </td></div>
-					</tr>
-				</g:each>
-			</table>
 	</body>
 </html>

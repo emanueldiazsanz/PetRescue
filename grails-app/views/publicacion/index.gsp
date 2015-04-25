@@ -108,7 +108,7 @@
 					<tr>
 						<td>
 					<div align="center">
-					<input type="submit" value="Enviar" /> <br><br>
+					<input type="submit" value="Enviar y buscar coincidencias" /> <br><br>
 					<input type="reset" value="Borrar formulario">
 					</div>
 				</td>
