@@ -85,18 +85,20 @@
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<ul>
+				<div align="center">
 				<li>Pet Rescue te ayuda a reunirte con tu mascota en unos pocos pasos.</p>
 			¡Llena el formulario y busca coincidencias!</li>
+				</div>
 				
 			</ul>	
 					</div>	
 		
-	<div id="page-body" role="main">
+	<div id="page-body" role="main" align="center">
 			<h1>¡Reencontrate con tu amiguito perdido!</h1>
 			<p>Completa el formulario con los datos de tu mascota.</p>
 
 
-			<div id="controller-list" role="navigation">
+			<div id="controller-list" role="navigation" align="center">
 				<h2></h2>
 					<g:link action="index" controller="publicacion">
 							<input type="button" value="Publicar aviso"/>
