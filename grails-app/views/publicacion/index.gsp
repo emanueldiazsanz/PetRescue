@@ -43,7 +43,7 @@
 							Nombre: <g:textField name="nombre" value="${command.nombre}"/> <br/>
 							Señas particulares: <g:textField name="senias" value="${command.senias}"/> <br>
 							<br>
-							Foto: <input type="file" name="foto">
+							Imagen(es): <input type="file" name="foto" multiple>
 
 						</td>
 						<td>
