@@ -97,15 +97,15 @@
 
 
 			<div id="controller-list" role="navigation">
-				<h2>Reportar mascota:</h2>
-					<BUTTON> <b>Encontré</b> </BUTTON>
-					<BUTTON> <b>Perdi</b> </BUTTON>
+				<h2></h2>
+					<g:link action="index" controller="publicacion">
+							<input type="button" value="Publicar aviso"/>
+					</g:link>
 
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
+				<h2></h2>
+					<g:link action="index" controller="usuario" >
+						<input type="button" value="Crear Usuario"/>
+					</g:link>
 			</div>
 		</div>
 	</body>

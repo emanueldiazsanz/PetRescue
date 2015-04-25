@@ -26,7 +26,9 @@
 			</tr>
 			<tr>
 				<td><div align="center">
-					<button> <b>Editar</b> </button>
+					<g:link action="editarPerfil" controller="usuario" id="1">
+						<input type="button" value="Editar"/>
+					</g:link>
 				</div></td>
 			</tr>
 		</table>

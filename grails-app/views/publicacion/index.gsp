@@ -27,25 +27,13 @@
 					<tr>
 						<td>
 							Especie* :
-							<select name="especie" value="${command.especie}">
-								<option> </option>
-								<option>gato</option>
-								<option>perro</option>
-							</select> <br/>
-							Raza: <g:textField name="raza" value="${command.raza}"/> <br/>
+							<g:select name="especie" from="['gato', 'perro']" value="${command.especie}" noSelection="['':'Seleccionar especie']"/><br>
+							Raza:
+							<g:select name="raza" from="['Indeterminada','Pekines', 'Pastor ALeman', 'Chihuahua']" value="${command.raza}" noSelection="['':'Seleccionar raza']"/><br>
 							Sexo* :
-							<select name="sexo" value="${command.sexo}">
-								<option> </option>
-								<option>hembra</option>
-								<option>macho</option>
-							</select> <br/>
+							<g:select name="sexo" from="['macho', 'hembra']" value="${command.sexo}" noSelection="['':'Seleccionar sexo']"/><br>
 							Tamaño* :
-							<select name="tamanio" value="${command.tamanio}">
-								<option> </option>
-								<option>chico</option>
-								<option>mediano</option>
-								<option>grande</option>
-							</select> <br/>
+							<g:select name="tamanio" from="['chico', 'mediano','grande']" value="${command.tamanio}" noSelection="['':'Seleccionar tamaño']"/><br>
 							Nombre: <g:textField name="nombre" value="${command.nombre}"/> <br/>
 							Señas particulares: <g:textField name="senias" value="${command.senias}"/> <br>
 							<br>
@@ -65,32 +53,30 @@
 						<td>
 							<!--Ubicacion-->
 							Provincia* :
-							<select name="provincia" value="${command.provincia}">
-								<option> </option>
-								<option>Capital Federal</option>
-								<option>Buenos Aires</option>
-								<option>Catamarca</option>
-								<option>Chaco</option>
-								<option>Chubut</option>
-								<option>Córdoba</option>
-								<option>Corrientes</option>
-								<option>Entre Rios</option>
-								<option>Formosa</option>
-								<option>Jujuy</option>
-								<option>La Pampa</option>
-								<option>La Rioja</option>
-								<option>Mendoza</option>
-								<option>Misiones</option>
-								<option>Neuquén</option>
-								<option>Río Negro</option>
-								<option>Salta</option>
-								<option>San Luis</option>
-								<option>Santa Cruz</option>
-								<option>Santa Fe</option>
-								<option>Santiago del Estero</option>
-								<option>Tierra del Fuego</option>
-								<option>Tucumán</option>
-							</select> <br/>
+							<g:select name="provincia" from="['Capital Federal',
+								'Buenos Aires',
+								'Catamarca',
+								'Chaco',
+								'Chubut',
+								'Córdoba',
+								'Corrientes',
+								'Entre Rios',
+								'Formosa',
+								'Jujuy',
+								'La Pampa',
+								'La Rioja',
+								'Mendoza',
+								'Misiones',
+								'Neuquén',
+								'Río Negro',
+								'Salta',
+								'San Juan',
+								'San Luis',
+								'Santa Cruz',
+								'Santa Fe',
+								'Santiago del Estero',
+								'Tierra del Fuego',
+								'Tucumán']" value="${command.provincia}" noSelection="['':'Seleccionar provincia']"/><br>
 							Barrio* : <g:textField name="barrio" value="${command.barrio}"/> <br/>
 							Calles: <g:textField name="calles" value="${command.calles}"/> <br/>
 						</td>
@@ -117,6 +103,11 @@
 					</tr>
 				</table>
 			</g:form>
+
+			<a href="www.google.com"> Google </a>
+		</br>
+			<g:link action="miPerfil" controller="usuario" id="1"> Ir a mi perfil</g:link>
+
 
 			<g:if test="${command}">
 				<g:hasErrors bean="${command}">

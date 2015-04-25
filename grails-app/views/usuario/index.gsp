@@ -38,13 +38,11 @@
 						Teléfono: <g:textField name="telefono" value="${command.telefono}"/> <br>
 						Email: <g:textField name="email" value="${command.email}"/> <br/>
 					</td>
-					<td>
-						<div align="left"> <br>
-						<input type="submit" value="Registrarse" />
-						</div>
-					</td>
 				</tr>
 			</table>
+			<div align="center"> <br>
+				<input type="submit" value="Registrarse" />
+			</div>
 		</g:form>
 	</body>
 </html>

@@ -50,4 +50,9 @@ class UsuarioController {
     	Usuario logeado = Usuario.get(id)
     	Map modelo = ['logeado': logeado, 'avisos': logeado.avisos]
     }
+
+    def editarPerfil(Long id){
+        Usuario logeado = Usuario.get(id)
+        Map modelo = ['logeado': logeado]
+    }
 }
