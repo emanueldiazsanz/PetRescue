@@ -95,20 +95,39 @@
 		
 	<div id="page-body" role="main" align="center">
 			<h1>¡Reencontrate con tu amiguito perdido!</h1>
-			<p>Completa el formulario con los datos de tu mascota.</p>
+			<p>Completa el formulario con los datos de tu mascota.</p></br>
 
 
 			<div id="controller-list" role="navigation" align="center">
+				<table>
+					<tr>
+						<td>
 				<h2></h2>
 					<g:link action="index" controller="publicacion">
 							<input type="button" value="Publicar aviso"/>
 					</g:link>
+				</td>
 
+						<td>
 				<h2></h2>
 					<g:link action="index" controller="usuario" >
-						<input type="button" value="Crear Usuario"/>
+						<input type="button" value="Registrarse"/>
 					</g:link>
+				</td>
+
+						<td>
+				<h2></h2>
+				<g:link action="iniciarSesion" controller="usuario" >
+					<input type="button" value="Iniciar Sesion"/>
+				</g:link>
+			</tr>
+		</table>
+	</div>
+
+			<div align="center">
+				<g:link action="miPerfil" controller="usuario" id="1">  Mi perfil </g:link>
 			</div>
+
 		</div>
 	</body>
 </html>

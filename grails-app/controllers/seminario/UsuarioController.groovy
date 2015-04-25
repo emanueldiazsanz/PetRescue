@@ -41,6 +41,10 @@ class UsuarioController {
 		redirect action: 'miPerfil', id: nuevoUsuario.id
     }
 
+    def iniciarSesion(Long id){
+
+    }
+
     def miPerfil(Long id){
         Usuario logeado = Usuario.get(id)
     	Map modelo = ['logeado': logeado]

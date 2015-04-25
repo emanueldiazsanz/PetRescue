@@ -13,7 +13,6 @@
 					<!--Usuario-->
 					<br>
 					Apodo: ${logeado.apodo} <br>
-					<br>
 
 					<!--HojaDeContacto-->
 					Nombre: ${logeado.hojaDeContacto.nombre} <br>
@@ -21,7 +20,7 @@
 					Teléfono: ${logeado.hojaDeContacto.telefono} <br>
 					Email: ${logeado.hojaDeContacto.email} <br>
 					<br>
-					Cantidad de avisos: ${logeado.avisos.size()}
+					Cantidad de avisos: ${logeado.avisos.size()} <g:link action="verAvisos" controller="usuario" id="1"> Ver mis avisos </g:link>
 				</td>
 			</tr>
 			<tr>
@@ -30,6 +29,9 @@
 						<input type="button" value="Editar"/>
 					</g:link>
 				</div></td>
+	
+			</div></td>
+
 			</tr>
 		</table>
 	</body>
