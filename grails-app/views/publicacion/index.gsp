@@ -24,6 +24,7 @@
 			<g:form action="publicarAviso">
 				<!--Mascota-->
 				<table>
+					<h3>Datos de la mascota</h3>
 					<tr>
 						<td>
 							Especie* :
@@ -55,6 +56,7 @@
 				</table>
 
 				<table>
+					<h3>Datos del suceso</h3>
 					<tr>
 						<td>
 							<!--Ubicacion-->
@@ -99,18 +101,21 @@
 							<br>
 							<input type="radio" name="tipoDeAviso" value="ENCONTRADO"> Encontrado
 						</td>
-						<td>
-							<!--Botones-->
-							<div align="center">
-							<input type="submit" value="Aceptar" /> <br><br>
-							<input type="reset" value="Borrar formulario">
-						</div>
-						</td>
 					</tr>
+				</table>
+				<table>
+					<!--Botones-->
+					<tr>
+						<td>
+					<div align="center">
+					<input type="submit" value="Enviar" /> <br><br>
+					<input type="reset" value="Borrar formulario">
+					</div>
+				</td>
+				</tr>
 				</table>
 			</g:form>
 
-		</br>
 			<div align="center">
 				<g:link action="miPerfil" controller="usuario" id="1">  Mi perfil </g:link>
 			</div>
