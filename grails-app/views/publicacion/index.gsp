@@ -30,6 +30,12 @@
 							<g:select name="especie" from="['gato', 'perro']" value="${command.especie}" noSelection="['':'Seleccionar especie']"/><br>
 							Raza:
 							<g:select name="raza" from="['Indeterminada','Pekines', 'Pastor ALeman', 'Chihuahua']" value="${command.raza}" noSelection="['':'Seleccionar raza']"/><br>
+							<h5>Puede consultar las razas en los siguientes enlaces: <br/>
+							<a href="http://www.asociacioncanina.org.ar/index2.htm"> Razas de Perros en Argentina 
+							</a> <br/>
+							<a href="http://www.asociacion-felina-argentina.com/2standards.html"> Razas de Gatos en Argentina 
+							</a> <br/>
+							Ante cualquier duda, marque la raza como indeterminada.</h5> <br/>
 							Sexo* :
 							<g:select name="sexo" from="['macho', 'hembra']" value="${command.sexo}" noSelection="['':'Seleccionar sexo']"/><br>
 							Tamaño* :
@@ -104,10 +110,10 @@
 				</table>
 			</g:form>
 
-			<a href="www.google.com"> Google </a>
 		</br>
-			<g:link action="miPerfil" controller="usuario" id="1"> Ir a mi perfil</g:link>
-
+			<div align="center">
+				<g:link action="miPerfil" controller="usuario" id="1">  Mi perfil </g:link>
+			</div>
 
 			<g:if test="${command}">
 				<g:hasErrors bean="${command}">
