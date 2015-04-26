@@ -5,7 +5,7 @@
 		<title>Pet Rescue</title>
 	</head>
 	<body>
-		<h1 align="center">CREAR USUARIO</h1>
+		<h1 align="center"> <strong> Registro de usuario </strong> </h1> <br>
 	
 		<g:if test="${command}">
 			<g:hasErrors bean="${command}">
@@ -20,23 +20,29 @@
 			</g:hasErrors>
 		</g:if>
 
-
 		<g:form action="crearUsuario">
+
 			<table>
 				<tr>
 					<td>
+						<strong>Datos de registro</strong>
 						<!--Usuario-->
 						<br>
-						Apodo: <g:textField name="apodo" value="${command.apodo}"/> <br>
-						Contraseña: <g:textField name="contrasenia" /> <br>
+						Apodo: <br>
+						<g:textField name="apodo" value="${command.apodo}"/> <br>
+						Contraseña: <br>
+						<g:textField name="contrasenia" /> <br>
 						<br>
-					</td>
-					<td>
+						<strong>Hoja de contacto</strong> <br>
 						<!--HojaDeContacto-->
-						Nombre: <g:textField name="nombre" value="${command.nombre}"/> <br>
-						Apellido: <g:textField name="apellido" value="${command.apellido}"/> <br>
-						Teléfono: <g:textField name="telefono" value="${command.telefono}"/> <br>
-						Email: <g:textField name="email" value="${command.email}"/> <br/>
+						Nombre: <br>
+						<g:textField name="nombre" value="${command.nombre}"/> <br>
+						Apellido: <br>
+						<g:textField name="apellido" value="${command.apellido}"/> <br>
+						Teléfono: <br>
+						<g:textField name="telefono" value="${command.telefono}"/> <br>
+						Email: <br>
+						<g:textField name="email" value="${command.email}"/> <br/>
 					</td>
 				</tr>
 			</table>
