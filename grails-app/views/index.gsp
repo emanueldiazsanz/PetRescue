@@ -88,10 +88,9 @@
 				<div align="center">
 				<li>Pet Rescue te ayuda a reunirte con tu mascota en unos pocos pasos.</p>
 			¡Llena el formulario y busca coincidencias!</li>
-				</div>
-				
+				</div>                 
 			</ul>	
-					</div>	
+		</div>	
 		
 	<div id="page-body" role="main" align="center">
 			<h1> <strong> ¡Reencontrate con tu amiguito perdido! </strong> </h1>
@@ -100,6 +99,10 @@
 
 			<div id="controller-list" role="navigation" align="center">
 				<table>
+					<tr>
+						<img src="http://i61.tinypic.com/34ph0fo.png" align="center">
+					</tr><br>
+				</br>
 					<tr>
 						<td>
 				<h2></h2>
