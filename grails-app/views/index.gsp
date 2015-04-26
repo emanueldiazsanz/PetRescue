@@ -94,7 +94,7 @@
 					</div>	
 		
 	<div id="page-body" role="main" align="center">
-			<h1>¡Reencontrate con tu amiguito perdido!</h1>
+			<h1> <strong> ¡Reencontrate con tu amiguito perdido! </strong> </h1>
 			<p>Completa el formulario con los datos de tu mascota.</p></br>
 
 

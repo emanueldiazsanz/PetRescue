@@ -5,7 +5,7 @@
 		<title>Pet Rescue</title>
 	</head>
 	<body>
-		<h1 align="center">PUBLICAR AVISO</h1>
+		<h1 align="center"> <strong> Publicar aviso </strong> </h1>
 		
 			<!--<g:if test="${command}">
 				<g:hasErrors bean="${command}">
@@ -30,7 +30,7 @@
 							Especie* :
 							<g:select name="especie" from="['gato', 'perro']" value="${command.especie}" noSelection="['':'Seleccionar especie']"/><br>
 							Raza:
-							<g:select name="raza" from="['Indeterminada','Pekines', 'Pastor ALeman', 'Chihuahua']" value="${command.raza}" noSelection="['':'Seleccionar raza']"/><br>
+							<g:select name="raza" from="['indeterminada','Pekines', 'Pastor ALeman', 'Chihuahua']" value="${command.raza}" noSelection="['':'Seleccionar raza']"/><br>
 							<h5>Puede consultar las razas en los siguientes enlaces: <br/>
 							<a href="http://www.asociacioncanina.org.ar/index2.htm"> Razas de Perros en Argentina 
 							</a> <br/>

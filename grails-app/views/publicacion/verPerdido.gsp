@@ -12,7 +12,7 @@
 
 			${aviso.tipoAviso} <br/>
 			${aviso.mascota.nombre} se perdió el día ${aviso.fecha} en el barrio de ${aviso.ubicacion.barrio} (${aviso.ubicacion.provincia}). <br>
-			Es un ${aviso.mascota.especie} ${aviso.mascota.sexo} de raza ${aviso.mascota.raza} y tamaño ${aviso.mascota.tamanio} <br><br>
+			Es un ${aviso.mascota.especie} ${aviso.mascota.sexo} de raza ${aviso.mascota.raza} y tamaño ${aviso.mascota.tamanio}. <br><br>
 			
 			<g:if test="${aviso.comentario}">
 				Comentario: ${aviso.comentario}
