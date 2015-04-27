@@ -20,7 +20,8 @@
 					Teléfono: ${logeado.hojaDeContacto.telefono} <br>
 					Email: ${logeado.hojaDeContacto.email} <br>
 					<br>
-					Cantidad de avisos: ${logeado.avisos.size()} <g:link action="verAvisos" controller="usuario" id="1"> Ver mis avisos </g:link>
+					Cantidad de avisos: ${logeado.avisos.size()} <br>
+					<g:link action="verAvisos" controller="usuario" id="1"> Ver mis avisos </g:link>
 				</td>
 			</tr>
 			<tr>
