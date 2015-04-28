@@ -18,6 +18,7 @@ class Usuario {
 	String contrasenia
 	HojaDeContacto hojaDeContacto
 	Set<Aviso> avisos = []
+	//Set<Notificacion> notificaciones = []
 
 	static hasMany = [avisos: Aviso]
 	
@@ -39,7 +40,7 @@ class Usuario {
 		this.hojaDeContacto = hojaDeContacto
 	}
 
-	def publicarAviso(Mascota mascota, LocalDate fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {
+	def publicarAviso(Mascota mascota, Date fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {
 		Aviso aviso = new Aviso(this, mascota, fecha, ubicacion, tipoAviso, comentario)
 		this.avisos << aviso
 		aviso

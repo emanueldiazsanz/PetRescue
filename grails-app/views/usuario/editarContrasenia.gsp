@@ -15,9 +15,9 @@
 						Contraseña actual: <br>
 						<g:textField name="contraseniaActual" /> <br>
 						Nueva contaseña: <br>
-						<g:textField name="nuevaContrasenia" /> <br>
+						<g:passwordField name="nuevaContrasenia" /> <br>
 						Repita la nueva contraseña: <br>
-						<g:textField name="nuevaContrasenia2" /> <br>
+						<g:passwordField name="nuevaContrasenia2" /> <br>
 					</td>
 				</tr>
 			</table>

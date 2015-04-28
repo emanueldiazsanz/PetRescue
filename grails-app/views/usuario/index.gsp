@@ -31,7 +31,7 @@
 						Apodo: <br>
 						<g:textField name="apodo" value="${command.apodo}"/> <br>
 						Contraseña: <br>
-						<g:textField name="contrasenia" /> <br>
+						<g:passwordField name="contrasenia" /> <br>
 						<br>
 						<strong>Hoja de contacto</strong> <br>
 						<!--HojaDeContacto-->

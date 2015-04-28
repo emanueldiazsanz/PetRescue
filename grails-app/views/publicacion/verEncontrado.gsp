@@ -12,7 +12,10 @@
 
 			${aviso.tipoAviso} <br/>
 			Se encontró un ${aviso.mascota.especie} ${aviso.mascota.sexo} de raza ${aviso.mascota.raza} y tamaño ${aviso.mascota.tamanio} <br/>
-			en el barrio de ${aviso.ubicacion.barrio} (${aviso.ubicacion.provincia}) el dia ${aviso.fecha} <br><br>
+			en el 
+			<g:if test="${aviso.ubicacion.provincia == 'Capital Federal'}"> barrio </g:if>
+			<g:else> localidad </g:else>
+			de ${aviso.ubicacion.barrio} (${aviso.ubicacion.provincia}) el dia ${aviso.fecha} <br><br>
 
 			<g:if test="${aviso.comentario}">
 				Comentario: ${aviso.comentario}

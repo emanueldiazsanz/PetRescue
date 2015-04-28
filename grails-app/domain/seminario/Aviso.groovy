@@ -18,12 +18,7 @@ class Ubicacion {
 	String provincia, barrio, calles
 
 	static constraints = {
-		provincia inList: ['Capital Federal', 'Buenos Aires',
-		'Catamarca', 'Chaco', 'Chubut', 'Córdoba', 'Corrientes',
-		'Entre Rios', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja',
-		'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta',
-		'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero',
-		'Tierra del Fuego', 'Tucumán'], blank:false, nullable: false
+		provincia blank:false, nullable: false
 		barrio blank: false, nullable: false
 		calles blank: true, nullable: true
     }
@@ -38,7 +33,7 @@ class Aviso {
 	TipoAviso tipoAviso
 	Mascota mascota
 	Usuario publicador
-	LocalDate fecha
+	Date fecha
 	Ubicacion ubicacion
 	String comentario
 
@@ -53,7 +48,7 @@ class Aviso {
 		comentario blank: true, nullable: true
 	}
 
-	Aviso(Usuario publicador, Mascota mascota, LocalDate fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {
+	Aviso(Usuario publicador, Mascota mascota, Date fecha, Ubicacion ubicacion, TipoAviso tipoAviso, String comentario) {
 		this.publicador = publicador
 		this.mascota = mascota
 		this.fecha = fecha

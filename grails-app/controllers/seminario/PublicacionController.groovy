@@ -1,10 +1,11 @@
 package seminario
 import org.joda.time.*
+import java.text.*;
 
 class PublicarAvisoCommand {
 	String especie, raza, sexo, tamanio, nombre, senias, comentario
 	String provincia, barrio, calles
-	Integer dia, mes, anio
+	Date fecha
 	TipoAviso tipoDeAviso
 	
 	static constraints = {
@@ -16,12 +17,7 @@ class PublicarAvisoCommand {
 		senias blank: true, nullable: true
 		comentario blank: true, nullable: true
 
-		provincia inList: ['Capital Federal', 'Buenos Aires',
-		'Catamarca', 'Chaco', 'Chubut', 'Córdoba', 'Corrientes',
-		'Entre Rios', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja',
-		'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta',
-		'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero',
-		'Tierra del Fuego', 'Tucumán'], blank:false, nullable: false
+		provincia blank:false, nullable: false
 		barrio blank: false, nullable: false
 		calles blank: true, nullable: true
 	}
@@ -60,11 +56,7 @@ class PublicacionController {
 		Ubicacion ubicacion = new Ubicacion(provincia: provincia, barrio: barrio, calles: calles)
 
 		// Fecha
-		def dia = command.dia as Integer
-		def mes = command.mes as Integer
-		def anio = command.anio as Integer
-		LocalDate fecha = new LocalDate(anio, mes, dia)		// verificar la fecha ingresada
-
+		Date fecha = command.fecha
 
 		// Tipo de aviso
 		TipoAviso tipoAviso = command.tipoDeAviso
